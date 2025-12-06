@@ -1,0 +1,2 @@
+### Filtrar tipo MOTO
+GET http://localhost:8080/espacios/filtrar/tipo/moto
