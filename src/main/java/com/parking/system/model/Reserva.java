@@ -3,6 +3,7 @@ package com.parking.system.model;
 import java.time.LocalDateTime;
 
 public class Reserva {
+    
     private Long id;
     private Long usuarioId;
     private Long espacioId;
@@ -10,14 +11,12 @@ public class Reserva {
     private LocalDateTime fechaFin;
     private String estado;
     private LocalDateTime fechaCreacion;
-
-    public Reserva()
-    {
+    
+    public Reserva() {
         this.fechaCreacion = LocalDateTime.now();
         this.estado = "CONFIRMADA";
     }
-
-    // getters y setters
+    
     public Long getId() { return id; }
     public void setId(Long id) { this.id = id; }
     

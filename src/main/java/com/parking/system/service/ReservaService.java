@@ -31,4 +31,8 @@ public class ReservaService {
         reservas.add(reserva);
         return reserva;
     }
+    
+    public List<Reserva> obtenerTodas() {
+        return new ArrayList<>(reservas);
+    }
 }
