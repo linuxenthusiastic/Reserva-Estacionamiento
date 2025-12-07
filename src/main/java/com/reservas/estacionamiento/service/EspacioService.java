@@ -5,8 +5,6 @@ import com.reservas.estacionamiento.factory.EspacioFactoryProvider;
 import com.reservas.estacionamiento.model.Espacio;
 import com.reservas.estacionamiento.model.EstadoEspacio;
 import com.reservas.estacionamiento.model.TipoEspacio;
-import com.reservas.estacionamiento.observer.EspacioSubject;
-import com.reservas.estacionamiento.observer.LoggerObserver;
 import com.reservas.estacionamiento.strategy.DisponibilidadStrategy;
 import org.springframework.stereotype.Service;
 
@@ -18,14 +16,21 @@ import java.util.stream.Collectors;
 public class EspacioService {
     private List<Espacio> espacios = new ArrayList<>();
     private int siguienteId = 1;
-    private EspacioSubject subject = new EspacioSubject();
+    /*
+    private ReservaService reservaService = new ReservarService();
+    */
 
-    public EspacioService() {
-        subject.agregarObservador(new LoggerObserver());
+    /*
+    public List<Reserva> obtenerReservasDeEspacio(int espacioId) {
+        return reservaService.obtenerTodas().stream()
+                .filter(r -> r.getEspacioId() == espacioId)
+                .toList();
     }
+    */
+
 
     //Crear un nuevo espacio
-    public Espacio crear(int numero, TipoEspacio tipo, int sedeId) {
+    public Espacio crearEspacio(int numero, TipoEspacio tipo, int sedeId) {
         EspacioFactory factory = EspacioFactoryProvider.getFactory(tipo);
         Espacio nuevoEspacio = factory.crearEspacio(siguienteId++, numero, sedeId);
         espacios.add(nuevoEspacio);
@@ -70,12 +75,20 @@ public class EspacioService {
         return strategy.filtrar(espacios);
     }
 
-    public boolean updateEstado(int id, EstadoEspacio estado) {
-        Espacio espacio = obtenerPorId(id);
-        if (espacio == null) return false;
+    public void crearMuchosEspacios(int sedeId) {
+        int cantidadPorTipo = 10;
+        int numero = espacios.size();
+        int tiposDeEspacio = 4;
 
-        espacio.setEstado(estado);
-        subject.notificarObservadores(espacio);
-        return true;
+        for(int i = 0; i < tiposDeEspacio; ++i) {
+            for(int j = 0; j < cantidadPorTipo; ++j) {
+                switch (i) {
+                    case 0 -> crearEspacio(numero++, TipoEspacio.AUTO, sedeId);
+                    case 1 -> crearEspacio(numero++, TipoEspacio.MOTO, sedeId);
+                    case 2 -> crearEspacio(numero++, TipoEspacio.DISCAPACITADO, sedeId);
+                    case 3 -> crearEspacio(numero++, TipoEspacio.VIP, sedeId);
+                }
+            }
+        }
     }
 }

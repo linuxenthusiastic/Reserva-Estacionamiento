@@ -22,7 +22,7 @@ public class EspacioController {
 
     @PostMapping
     public Espacio crear(@RequestBody Espacio nuevoEspacio) {
-        return espacioService.crear(
+        return espacioService.crearEspacio(
                 nuevoEspacio.getNumero(),
                 nuevoEspacio.getTipo(),
                 nuevoEspacio.getSedeId()
@@ -54,10 +54,28 @@ public class EspacioController {
         return espacioService.filtrarDisponibilidad(new DisponibilidadPorEstado());
     }
 
-    @GetMapping("filtrar/tipo/{tipo}")
+    @GetMapping("/filtrar/tipo/{tipo}")
     public List<Espacio> disponibilidadPorTipo(@PathVariable String tipo) {
-        DisponibilidadStrategy strategy = new DisponibilidadPorTipo(TipoEspacio.valueOf(tipo.toUpperCase()));
+        DisponibilidadStrategy porTipo = new DisponibilidadPorTipo(TipoEspacio.valueOf(tipo.toUpperCase()));
+        List<Espacio> espacios = espacioService.filtrarDisponibilidad(porTipo);
+
+        DisponibilidadStrategy porEstado = new DisponibilidadPorEstado();
+        espacios = porEstado.filtrar(espacios);
+
+        return espacios;
+    }
+
+    /*
+    @GetMapping("/filtrar/horario/{inicio}/{fin}")
+    public List<Espacio> disponibilidadPorHorario(@PathVariable String inicio, @PathVariable String fin) {
+        DisponibilidadStrategy strategy = new DispoinibilidadPorHorario(inicio, fin);
         return espacioService.filtrarDisponibilidad(strategy);
+    }
+    */
+
+    @PostMapping("crearMuchos/{sedeId}")
+    public void crearMuchos(@PathVariable int sedeId) {
+        espacioService.crearMuchosEspacios(sedeId);
     }
 
 }

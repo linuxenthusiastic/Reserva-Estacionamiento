@@ -14,6 +14,7 @@ public class Espacio {
         this.estado = estado;
         this.sedeId = sedeId;
     }
+
     public int getId() { return id; }
     public int getNumero() { return numero; }
     public TipoEspacio getTipo() { return tipo; }

@@ -1,6 +1,7 @@
 package com.reservas.estacionamiento.controller;
 
 import com.reservas.estacionamiento.model.Sede;
+import com.reservas.estacionamiento.service.EspacioService;
 import com.reservas.estacionamiento.service.SedeService;
 import org.springframework.web.bind.annotation.*;
 
@@ -11,7 +12,7 @@ import java.util.List;
 public class SedeController {
     private final SedeService sedeService;
 
-    public SedeController(SedeService sedeService) {
+    public SedeController(SedeService sedeService, EspacioService espacioService) {
         this.sedeService = sedeService;
     }
 
@@ -22,7 +23,7 @@ public class SedeController {
 
     @PostMapping
     public Sede crear(@RequestBody Sede nuevaSede) {
-        return sedeService.crear(
+        return sedeService.crearSede(
                 nuevaSede.getNombre(),
                 nuevaSede.getDireccion(),
                 nuevaSede.getCiudad()

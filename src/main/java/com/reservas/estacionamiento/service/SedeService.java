@@ -17,7 +17,7 @@ public class SedeService {
     }
 
     //Crea una nueva sede
-    public Sede crear(String nombre, String direccion, String ciudad) {
+    public Sede crearSede(String nombre, String direccion, String ciudad) {
         Sede nuevaSede = new Sede(siguienteId++, nombre, direccion, ciudad);
         sedes.add(nuevaSede);
         return nuevaSede;
