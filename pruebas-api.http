@@ -1,0 +1,14 @@
+### PRUEBA 1: Configurar el Precio (Patrón Repository)
+# Primero debemos guardar una tarifa porque la BD inicia vacía.
+# Precio: 10 BOB por hora para Autos.
+POST http://localhost:8080/api/tarifas
+Content-Type: application/json
+
+{
+  "tipoVehiculo": "AUTO",
+  "precioUnitario": 10.0,
+  "unidadTiempo": "HORA",
+  "moneda": "BOB",
+  "horaInicioValidez": "00:00",
+  "horaFinValidez": "23:59"
+}
