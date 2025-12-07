@@ -15,6 +15,7 @@ public class ReservaMapper {
         response.setFechaInicio(reserva.getFechaInicio());
         response.setFechaFin(reserva.getFechaFin());
         response.setEstado(reserva.getEstado());
+        response.setQrCode(reserva.getQrCode());  // ← AQUÍ
         response.setFechaCreacion(reserva.getFechaCreacion());
         return response;
     }
