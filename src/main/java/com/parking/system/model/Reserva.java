@@ -10,6 +10,7 @@ public class Reserva {
     private LocalDateTime fechaInicio;
     private LocalDateTime fechaFin;
     private String estado;
+    private String qrCode;
     private LocalDateTime fechaCreacion;
     
     public Reserva() {
@@ -17,24 +18,67 @@ public class Reserva {
         this.estado = "CONFIRMADA";
     }
     
-    public Long getId() { return id; }
-    public void setId(Long id) { this.id = id; }
+    public Long getId() {
+        return id;
+    }
     
-    public Long getUsuarioId() { return usuarioId; }
-    public void setUsuarioId(Long usuarioId) { this.usuarioId = usuarioId; }
+    public void setId(Long id) {
+        this.id = id;
+    }
     
-    public Long getEspacioId() { return espacioId; }
-    public void setEspacioId(Long espacioId) { this.espacioId = espacioId; }
+    public Long getUsuarioId() {
+        return usuarioId;
+    }
     
-    public LocalDateTime getFechaInicio() { return fechaInicio; }
-    public void setFechaInicio(LocalDateTime fechaInicio) { this.fechaInicio = fechaInicio; }
+    public void setUsuarioId(Long usuarioId) {
+        this.usuarioId = usuarioId;
+    }
     
-    public LocalDateTime getFechaFin() { return fechaFin; }
-    public void setFechaFin(LocalDateTime fechaFin) { this.fechaFin = fechaFin; }
+    public Long getEspacioId() {
+        return espacioId;
+    }
     
-    public String getEstado() { return estado; }
-    public void setEstado(String estado) { this.estado = estado; }
+    public void setEspacioId(Long espacioId) {
+        this.espacioId = espacioId;
+    }
     
-    public LocalDateTime getFechaCreacion() { return fechaCreacion; }
-    public void setFechaCreacion(LocalDateTime fechaCreacion) { this.fechaCreacion = fechaCreacion; }
+    public LocalDateTime getFechaInicio() {
+        return fechaInicio;
+    }
+    
+    public void setFechaInicio(LocalDateTime fechaInicio) {
+        this.fechaInicio = fechaInicio;
+    }
+    
+    public LocalDateTime getFechaFin() {
+        return fechaFin;
+    }
+    
+    public void setFechaFin(LocalDateTime fechaFin) {
+        this.fechaFin = fechaFin;
+    }
+    
+    public String getEstado() {
+        return estado;
+    }
+    
+    public void setEstado(String estado) {
+        this.estado = estado;
+    }
+    
+    public String getQrCode() {
+        return qrCode;
+    }
+    
+    public void setQrCode(String qrCode) {
+        this.qrCode = qrCode;
+    }
+    
+    public LocalDateTime getFechaCreacion() {
+        return fechaCreacion;
+    }
+    
+    public void setFechaCreacion(LocalDateTime fechaCreacion) {
+        this.fechaCreacion = fechaCreacion;
+    }
 }
