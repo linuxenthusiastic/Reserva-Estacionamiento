@@ -6,8 +6,8 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class TestController {
 
-    @GetMapping("/ping")
-    public String ping() {
-        return "pong";
+    @GetMapping("/prueba")
+    public String Saludar() {
+        return "Modulo Usuarios funcionando";
     }
 }

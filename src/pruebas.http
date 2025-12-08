@@ -1,0 +1,14 @@
+### Crear un Usuario nuevo (Conductor)
+POST http://localhost:8081/api/usuarios/registrar
+Content-Type: application/json
+
+{
+  "nombre": "Juan Perez",
+  "email": "juan@gmail.com",
+  "password": "1234password",
+  "telefono": "77755511",
+  "rol": "CONDUCTOR"
+}
+
+### Listar todos los usuarios
+GET http://localhost:8081/api/usuarios
