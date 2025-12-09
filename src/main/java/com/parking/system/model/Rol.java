@@ -5,3 +5,4 @@ public enum Rol {
     OPERADOR,
     CONDUCTOR
 }
+//

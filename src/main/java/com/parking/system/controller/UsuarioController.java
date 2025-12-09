@@ -40,7 +40,7 @@ public class UsuarioController {
                     usuario.getNombre(),
                     usuario.getEmail(),
                     usuario.getRol().name(),
-                    "¡Bienvenido al sistema!"
+                    "¡Bienvenido al sistema!!"
             );
 
             return ResponseEntity.ok(respuesta);
