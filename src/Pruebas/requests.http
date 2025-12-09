@@ -1,0 +1,2 @@
+### Crear 40 espacios (según tu lógica) para sede 1
+POST http://localhost:8080/espacios/crearMuchos/1

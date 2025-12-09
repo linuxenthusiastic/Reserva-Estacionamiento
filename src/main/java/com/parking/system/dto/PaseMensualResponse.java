@@ -1,19 +1,22 @@
 package com.parking.system.dto;
 
+import java.math.BigDecimal;
 import java.time.LocalDateTime;
 
-public class ReservaResponse {
+public class PaseMensualResponse {
     
     private Long id;
     private Long usuarioId;
-    private Long espacioId;
+    private String tipo;
+    private Long espacioAsignado;
     private LocalDateTime fechaInicio;
-    private LocalDateTime fechaFin;
+    private LocalDateTime fechaVencimiento;
+    private BigDecimal precio;
     private String estado;
-    private String qrCode;
+    private boolean vigente;
     private LocalDateTime fechaCreacion;
     
-    public ReservaResponse() {}
+    public PaseMensualResponse() {}
     
     public Long getId() {
         return id;
@@ -31,12 +34,20 @@ public class ReservaResponse {
         this.usuarioId = usuarioId;
     }
     
-    public Long getEspacioId() {
-        return espacioId;
+    public String getTipo() {
+        return tipo;
     }
     
-    public void setEspacioId(Long espacioId) {
-        this.espacioId = espacioId;
+    public void setTipo(String tipo) {
+        this.tipo = tipo;
+    }
+    
+    public Long getEspacioAsignado() {
+        return espacioAsignado;
+    }
+    
+    public void setEspacioAsignado(Long espacioAsignado) {
+        this.espacioAsignado = espacioAsignado;
     }
     
     public LocalDateTime getFechaInicio() {
@@ -47,12 +58,20 @@ public class ReservaResponse {
         this.fechaInicio = fechaInicio;
     }
     
-    public LocalDateTime getFechaFin() {
-        return fechaFin;
+    public LocalDateTime getFechaVencimiento() {
+        return fechaVencimiento;
     }
     
-    public void setFechaFin(LocalDateTime fechaFin) {
-        this.fechaFin = fechaFin;
+    public void setFechaVencimiento(LocalDateTime fechaVencimiento) {
+        this.fechaVencimiento = fechaVencimiento;
+    }
+    
+    public BigDecimal getPrecio() {
+        return precio;
+    }
+    
+    public void setPrecio(BigDecimal precio) {
+        this.precio = precio;
     }
     
     public String getEstado() {
@@ -63,12 +82,12 @@ public class ReservaResponse {
         this.estado = estado;
     }
     
-    public String getQrCode() {
-        return qrCode;
+    public boolean isVigente() {
+        return vigente;
     }
     
-    public void setQrCode(String qrCode) {
-        this.qrCode = qrCode;
+    public void setVigente(boolean vigente) {
+        this.vigente = vigente;
     }
     
     public LocalDateTime getFechaCreacion() {
