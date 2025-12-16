@@ -1,0 +1,51 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+    margin: 0;
+    font-family: 'Outfit', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    background-color: #0f172a;
+    /* Slate 900 */
+    color: #f8fafc;
+    overflow-x: hidden;
+}
+
+/* Custom Utilities */
+.glass-panel {
+    @apply bg-glass border border-glass-border backdrop-blur-md rounded-2xl shadow-xl;
+}
+
+.btn-primary {
+    @apply bg-primary hover:bg-indigo-600 text-white font-bold py-2 px-4 rounded-xl transition-all duration-200 transform hover:scale-105;
+}
+
+.input-field {
+    @apply w-full bg-slate-800/50 border border-slate-700 text-white rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-primary;
+}
+
+/* Background Animation */
+.bg-blob {
+    position: fixed;
+    border-radius: 50%;
+    filter: blur(80px);
+    z-index: -1;
+    opacity: 0.4;
+    animation: float 10s infinite ease-in-out;
+}
+
+@keyframes float {
+
+    0%,
+    100% {
+        transform: translate(0, 0);
+    }
+
+    50% {
+        transform: translate(30px, -30px);
+    }
+}

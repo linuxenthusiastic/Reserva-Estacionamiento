@@ -61,4 +61,16 @@ public class CobroController {
                 .contentType(mediaType)
                 .body(archivo);
     }
+
+    @GetMapping("/facturas")
+    public ResponseEntity<?> obtenerTodasFacturas() {
+        return ResponseEntity.ok(cobroService.obtenerTodasFacturas());
+    }
+
+    @GetMapping("/factura/{id}")
+    public ResponseEntity<?> obtenerFacturaPorId(@PathVariable Long id) {
+        return cobroService.obtenerFacturaPorId(id)
+                .map(ResponseEntity::ok)
+                .orElse(ResponseEntity.notFound().build());
+    }
 }

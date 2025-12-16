@@ -6,7 +6,6 @@ import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
-import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 
 @Configuration
 public class SecurityConfig {
@@ -15,21 +14,16 @@ public class SecurityConfig {
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http
                 .csrf(csrf -> csrf.disable())
+                .cors(org.springframework.security.config.Customizer.withDefaults())
                 .authorizeHttpRequests(auth -> auth
-                        .requestMatchers(new AntPathRequestMatcher("/h2-console/**")).permitAll()
-                        .requestMatchers(new AntPathRequestMatcher("/api/usuarios/registrar")).permitAll()
-                        .requestMatchers(new AntPathRequestMatcher("/api/usuarios/login")).permitAll()
-
-                        .requestMatchers(new AntPathRequestMatcher("/api/usuarios", "GET")).hasAuthority("ADMIN")
-                        .requestMatchers(new AntPathRequestMatcher("/api/usuarios/**", "DELETE")).hasAuthority("ADMIN")
-                        .anyRequest().authenticated()
+                        .anyRequest().permitAll() // PERMITIR TODO - SIN AUTENTICACIÓN
                 )
                 .httpBasic(org.springframework.security.config.Customizer.withDefaults())
                 .headers(headers -> headers.frameOptions(frame -> frame.disable()));
 
         return http.build();
     }
-//
+
     @Bean
     public PasswordEncoder passwordEncoder() {
         return new BCryptPasswordEncoder();

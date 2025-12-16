@@ -1,0 +1,219 @@
+.pases-container {
+    padding: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.pases-header {
+    margin-bottom: 2rem;
+}
+
+.pases-header h1 {
+    font-size: 2rem;
+    color: #1a1a2e;
+    margin-bottom: 0.5rem;
+}
+
+.pases-header p {
+    color: #666;
+    font-size: 1rem;
+}
+
+/* Estados de carga y error */
+.loading-message,
+.error-message,
+.empty-message {
+    text-align: center;
+    padding: 3rem;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.loading-message p,
+.error-message p,
+.empty-message p {
+    font-size: 1.2rem;
+    color: #666;
+}
+
+.btn-retry {
+    margin-top: 1rem;
+    padding: 0.75rem 1.5rem;
+    background: #667eea;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.btn-retry:hover {
+    background: #5568d3;
+    transform: translateY(-2px);
+}
+
+/* Lista de usuarios */
+.usuarios-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.usuario-item {
+    background: white;
+    border-radius: 12px;
+    padding: 1.5rem;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 2rem;
+    transition: all 0.3s;
+}
+
+.usuario-item:hover {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    transform: translateY(-2px);
+}
+
+.usuario-info {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    flex: 1;
+}
+
+.usuario-avatar {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.usuario-datos h3 {
+    margin: 0 0 0.25rem 0;
+    font-size: 1.1rem;
+    color: #1a1a2e;
+}
+
+.usuario-email {
+    margin: 0;
+    font-size: 0.9rem;
+    color: #666;
+}
+
+.usuario-estado {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 0.75rem;
+    min-width: 300px;
+}
+
+/* Badges */
+.badge {
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 700;
+    text-align: center;
+}
+
+.badge.activa {
+    background: #d1fae5;
+    color: #065f46;
+}
+
+.badge.inactiva {
+    background: #fee2e2;
+    color: #991b1b;
+}
+
+/* Detalles de membresía */
+.membresia-detalles {
+    background: #f8f9fa;
+    padding: 0.75rem;
+    border-radius: 8px;
+    font-size: 0.85rem;
+    color: #666;
+    width: 100%;
+}
+
+.membresia-detalles p {
+    margin: 0.25rem 0;
+}
+
+.membresia-detalles .beneficio {
+    color: #10b981;
+    font-weight: 600;
+    margin-top: 0.5rem;
+    padding-top: 0.5rem;
+    border-top: 1px solid #e0e0e0;
+}
+
+.sin-membresia-info {
+    font-size: 0.9rem;
+    color: #666;
+    margin: 0;
+    text-align: center;
+}
+
+/* Botones */
+.btn-activar,
+.btn-desactivar {
+    padding: 0.75rem 1.5rem;
+    border: none;
+    border-radius: 8px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s;
+    width: 100%;
+}
+
+.btn-activar {
+    background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+    color: white;
+}
+
+.btn-activar:hover {
+    background: linear-gradient(135deg, #059669 0%, #047857 100%);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(16, 185, 129, 0.3);
+}
+
+.btn-desactivar {
+    background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);
+    color: white;
+}
+
+.btn-desactivar:hover {
+    background: linear-gradient(135deg, #dc2626 0%, #b91c1c 100%);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(239, 68, 68, 0.3);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .usuario-item {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .usuario-estado {
+        align-items: stretch;
+        min-width: auto;
+    }
+
+    .badge {
+        text-align: center;
+    }
+}
