@@ -1,11 +1,11 @@
-package com.reservas.estacionamiento.strategy;
+package com.parking.system.strategy;
 
 /*
 import com.parking.system.model.Reserva;
 */
 
-import com.reservas.estacionamiento.model.Espacio;
-import com.reservas.estacionamiento.service.EspacioService;
+import com.parking.system.model.Espacio;
+import com.parking.system.service.EspacioService;
 
 import java.time.LocalDateTime;
 import java.util.List;

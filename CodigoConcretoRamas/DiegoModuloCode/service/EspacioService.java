@@ -1,11 +1,11 @@
-package com.reservas.estacionamiento.service;
+package com.parking.system.service;
 
-import com.reservas.estacionamiento.factory.EspacioFactory;
-import com.reservas.estacionamiento.factory.EspacioFactoryProvider;
-import com.reservas.estacionamiento.model.Espacio;
-import com.reservas.estacionamiento.model.EstadoEspacio;
-import com.reservas.estacionamiento.model.TipoEspacio;
-import com.reservas.estacionamiento.strategy.DisponibilidadStrategy;
+import com.parking.system.factory.EspacioFactory;
+import com.parking.system.factory.EspacioFactoryProvider;
+import com.parking.system.model.Espacio;
+import com.parking.system.model.EstadoEspacio;
+import com.parking.system.model.TipoEspacio;
+import com.parking.system.strategy.DisponibilidadStrategy;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;

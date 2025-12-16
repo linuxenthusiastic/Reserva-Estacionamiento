@@ -1,6 +1,6 @@
-package com.reservas.estacionamiento.factory;
+package com.parking.system.factory;
 
-import com.reservas.estacionamiento.model.TipoEspacio;
+import com.parking.system.model.TipoEspacio;
 
 public class EspacioFactoryProvider {
     public static EspacioFactory getFactory(TipoEspacio tipo) {

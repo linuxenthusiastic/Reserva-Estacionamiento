@@ -1,9 +1,10 @@
-package com.reservas.estacionamiento.service;
+package com.parking.system.service;
 
-import com.reservas.estacionamiento.model.Sede;
+import com.parking.system.model.Sede;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import jakarta.annotation.PostConstruct;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -19,6 +20,15 @@ public class SedeService {
         this.espacioService = espacioService;
     }
 
+    // Inicialización después de que Spring cree el bean
+    @PostConstruct
+    public void init() {
+        System.out.println(">>> Inicializando SedeService con sedes por defecto...");
+        crearSede("Sede Centro", "Av. 6 de Agosto #123", "Santa Cruz");
+        crearSede("Sede Sur", "Calle Murillo #456", "Santa Cruz");
+        System.out.println(">>> Sedes creadas: " + sedes.size());
+    }
+
     // Devuleve todas las sedes
     public List<Sede> obtenerSedes() {
         return sedes;
@@ -31,6 +41,7 @@ public class SedeService {
 
         // Crear automáticamente 10 espacios de cada tipo (40 total)
         espacioService.crearMuchosEspacios(nuevaSede.getId());
+        System.out.println(">>> Espacios creados para sede: " + nuevaSede.getNombre());
 
         return nuevaSede;
     }

@@ -2,54 +2,66 @@ package com.parking.system.service;
 
 import org.springframework.stereotype.Component;
 import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
+import java.util.Random;
 
 @Component
 public class QRCodeGenerator {
-    
+
+    private static final String CARACTERES = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+    private static final int LONGITUD_CODIGO = 8;
+    private final Random random = new Random();
+
+    /**
+     * Genera un código QR simple y aleatorio (ej: A1B2C3D4)
+     */
     public String generarCodigo(Long reservaId, LocalDateTime fechaReserva) {
-        String timestamp = fechaReserva.format(DateTimeFormatter.ofPattern("yyyyMMddHHmmss"));
-        String hash = generarHash(reservaId, timestamp);
-        
-        return String.format("PARKING-%d-%s-%s", reservaId, timestamp, hash);
+        StringBuilder codigo = new StringBuilder();
+
+        for (int i = 0; i < LONGITUD_CODIGO; i++) {
+            int index = random.nextInt(CARACTERES.length());
+            codigo.append(CARACTERES.charAt(index));
+        }
+
+        return codigo.toString();
     }
-    
+
+    /**
+     * Valida que el código tenga el formato correcto
+     */
     public boolean esCodigoValido(String codigo) {
-        if (codigo == null || !codigo.startsWith("PARKING-")) {
+        if (codigo == null || codigo.isEmpty()) {
             return false;
         }
-        
-        String[] partes = codigo.split("-");
-        if (partes.length != 4) {
-            return false;
+
+        // Acepta códigos de 8 caracteres alfanuméricos
+        if (codigo.matches("^[A-Z0-9]{" + LONGITUD_CODIGO + "}$")) {
+            return true;
         }
-        
-        try {
-            Long reservaId = Long.parseLong(partes[1]);
-            String timestamp = partes[2];
-            String hashRecibido = partes[3];
-            
-            String hashEsperado = generarHash(reservaId, timestamp);
-            
-            return hashRecibido.equals(hashEsperado);
-            
-        } catch (Exception e) {
-            return false;
-        }
+
+        // También acepta el formato antiguo por compatibilidad
+        return codigo.startsWith("PARKING-") && codigo.split("-").length >= 3;
     }
-    
-    public Long extraerReservaId(String codigo) {
-        if (!esCodigoValido(codigo)) {
-            throw new IllegalArgumentException("Código QR inválido");
+
+    /**
+     * Extrae el ID de la reserva del código QR antiguo
+     * Para códigos nuevos, retorna null
+     */
+    public Long extraerReservaId(String codigoQR) {
+        if (codigoQR == null || codigoQR.isEmpty()) {
+            return null;
         }
-        
-        String[] partes = codigo.split("-");
-        return Long.parseLong(partes[1]);
-    }
-    
-    private String generarHash(Long reservaId, String timestamp) {
-        String data = reservaId + timestamp + "SECRET_KEY_PARKING_2024";
-        int hash = data.hashCode();
-        return Integer.toHexString(Math.abs(hash)).substring(0, 6);
+
+        // Si es formato antiguo PARKING-X-..., extraer X
+        if (codigoQR.startsWith("PARKING-")) {
+            try {
+                String[] partes = codigoQR.split("-");
+                return Long.parseLong(partes[1]);
+            } catch (Exception e) {
+                return null;
+            }
+        }
+
+        // Para códigos nuevos aleatorios, no se puede extraer el ID
+        return null;
     }
 }

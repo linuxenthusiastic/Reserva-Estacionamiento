@@ -1,8 +1,8 @@
-package com.reservas.estacionamiento.controller;
+package com.parking.system.controller;
 
-import com.reservas.estacionamiento.model.Sede;
-import com.reservas.estacionamiento.service.EspacioService;
-import com.reservas.estacionamiento.service.SedeService;
+import com.parking.system.model.Sede;
+import com.parking.system.service.EspacioService;
+import com.parking.system.service.SedeService;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;

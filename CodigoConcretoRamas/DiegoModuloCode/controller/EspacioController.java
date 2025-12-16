@@ -1,12 +1,12 @@
-package com.reservas.estacionamiento.controller;
+package com.parking.system.controller;
 
-import com.reservas.estacionamiento.model.Espacio;
-import com.reservas.estacionamiento.model.EstadoEspacio;
-import com.reservas.estacionamiento.model.TipoEspacio;
-import com.reservas.estacionamiento.service.EspacioService;
-import com.reservas.estacionamiento.strategy.DisponibilidadPorEstado;
-import com.reservas.estacionamiento.strategy.DisponibilidadPorTipo;
-import com.reservas.estacionamiento.strategy.DisponibilidadStrategy;
+import com.parking.system.model.Espacio;
+import com.parking.system.model.EstadoEspacio;
+import com.parking.system.model.TipoEspacio;
+import com.parking.system.service.EspacioService;
+import com.parking.system.strategy.DisponibilidadPorEstado;
+import com.parking.system.strategy.DisponibilidadPorTipo;
+import com.parking.system.strategy.DisponibilidadStrategy;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;

@@ -82,4 +82,14 @@ public class CobroService {
         IReporteGenerator generador = reporteFactory.getGenerador(formato);
         return generador.generarArchivo(facturasRealizadas);
     }
+
+    public List<Factura> obtenerTodasFacturas() {
+        return new ArrayList<>(facturasRealizadas);
+    }
+
+    public Optional<Factura> obtenerFacturaPorId(Long id) {
+        return facturasRealizadas.stream()
+                .filter(f -> f.getId().equals(id))
+                .findFirst();
+    }
 }

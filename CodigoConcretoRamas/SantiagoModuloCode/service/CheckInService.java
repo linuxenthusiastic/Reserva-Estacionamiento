@@ -81,6 +81,13 @@ public class CheckInService {
         return new ArrayList<>(checkIns);
     }
 
+    /**
+     * Busca una reserva por su código QR
+     */
+    public Optional<Reserva> buscarReservaPorQR(String codigoQR) {
+        return reservaService.buscarPorCodigoQR(codigoQR);
+    }
+
     public Optional<CheckIn> obtenerPorReserva(Long reservaId) {
         return checkIns.stream()
                 .filter(c -> c.getReservaId().equals(reservaId))

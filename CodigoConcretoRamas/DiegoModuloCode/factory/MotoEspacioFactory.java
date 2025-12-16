@@ -1,6 +1,6 @@
-package com.reservas.estacionamiento.factory;
+package com.parking.system.factory;
 
-import com.reservas.estacionamiento.model.*;
+import com.parking.system.model.*;
 
 public class MotoEspacioFactory implements EspacioFactory {
     @Override

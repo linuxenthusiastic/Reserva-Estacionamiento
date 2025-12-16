@@ -1,6 +1,6 @@
-package com.reservas.estacionamiento.strategy;
+package com.parking.system.strategy;
 
-import com.reservas.estacionamiento.model.Espacio;
+import com.parking.system.model.Espacio;
 
 import java.util.List;
 

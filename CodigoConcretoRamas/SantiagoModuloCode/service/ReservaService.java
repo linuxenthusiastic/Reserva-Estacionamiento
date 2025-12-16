@@ -70,12 +70,14 @@ public class ReservaService {
     }
 
     public Optional<Reserva> buscarPorCodigoQR(String codigoQR) {
-        if (!qrCodeGenerator.esCodigoValido(codigoQR)) {
+        if (codigoQR == null || codigoQR.isEmpty()) {
             return Optional.empty();
         }
 
-        Long reservaId = qrCodeGenerator.extraerReservaId(codigoQR);
-        return obtenerPorId(reservaId);
+        // Buscar directamente por código QR en la lista de reservas
+        return reservas.stream()
+                .filter(r -> codigoQR.equals(r.getQrCode()))
+                .findFirst();
     }
 
     public List<Reserva> obtenerTodas() {
@@ -113,21 +115,33 @@ public class ReservaService {
         return !(terminaAntes || empiezaDespues);
     }
 
-    public boolean cancelarReserva(Long id) {
-        Optional<Reserva> reserva = obtenerPorId(id);
+    /**
+     * Cancela una reserva
+     * Solo se pueden cancelar reservas en estado PENDIENTE o CONFIRMADA
+     */
+    public void cancelarReserva(Long id) {
+        Optional<Reserva> reservaOpt = obtenerPorId(id);
 
-        if (reserva.isPresent()) {
-            Reserva r = reserva.get();
-            r.setEstado("CANCELADA");
-
-            // Liberar el espacio
-            espacioService.actualizarEstado(r.getEspacioId().intValue(), EstadoEspacio.DISPONIBLE);
-            System.out.println(">>> Espacio " + r.getEspacioId() + " liberado (reserva cancelada)");
-
-            return true;
+        if (reservaOpt.isEmpty()) {
+            throw new IllegalArgumentException("Reserva no encontrada");
         }
 
-        return false;
+        Reserva reserva = reservaOpt.get();
+
+        // Validar que la reserva esté en un estado cancelable
+        if (!"PENDIENTE".equals(reserva.getEstado()) && !"CONFIRMADA".equals(reserva.getEstado())) {
+            throw new IllegalStateException("No se puede cancelar una reserva en estado: " + reserva.getEstado());
+        }
+
+        String estadoAnterior = reserva.getEstado();
+
+        // Cambiar estado a CANCELADA
+        reserva.setEstado("CANCELADA");
+
+        // Liberar el espacio (tanto PENDIENTE como CONFIRMADA deben liberar el espacio)
+        espacioService.actualizarEstado(reserva.getEspacioId().intValue(), EstadoEspacio.DISPONIBLE);
+        System.out.println(">>> RESERVA: Espacio " + reserva.getEspacioId() + " liberado (DISPONIBLE)");
+        System.out.println(">>> RESERVA: Cancelada #" + id + " (Estado anterior: " + estadoAnterior + ")");
     }
 
     public boolean aprobarReserva(Long id) {
@@ -163,5 +177,48 @@ public class ReservaService {
         return reservas.stream()
                 .filter(r -> "PENDIENTE".equals(r.getEstado()))
                 .collect(Collectors.toList());
+    }
+
+    /**
+     * Edita una reserva existente
+     * Solo se pueden editar reservas en estado PENDIENTE o CONFIRMADA
+     */
+    public Reserva editarReserva(Long id, LocalDateTime nuevaFechaInicio, LocalDateTime nuevaFechaFin) {
+        Optional<Reserva> reservaOpt = obtenerPorId(id);
+
+        if (reservaOpt.isEmpty()) {
+            throw new IllegalArgumentException("Reserva no encontrada");
+        }
+
+        Reserva reserva = reservaOpt.get();
+
+        // Validar que la reserva esté en un estado editable
+        if (!"PENDIENTE".equals(reserva.getEstado()) && !"CONFIRMADA".equals(reserva.getEstado())) {
+            throw new IllegalStateException("No se puede editar una reserva en estado: " + reserva.getEstado());
+        }
+
+        // Validar fechas
+        if (nuevaFechaInicio.isBefore(LocalDateTime.now())) {
+            throw new IllegalArgumentException("La fecha de inicio no puede ser en el pasado");
+        }
+
+        if (nuevaFechaFin.isBefore(nuevaFechaInicio)) {
+            throw new IllegalArgumentException("La fecha de fin debe ser posterior a la fecha de inicio");
+        }
+
+        // Validar duración máxima
+        long horas = java.time.Duration.between(nuevaFechaInicio, nuevaFechaFin).toHours();
+        if (horas > 12) {
+            throw new IllegalArgumentException("La reserva no puede durar más de 12 horas. Duración: " + horas + "h");
+        }
+
+        // Actualizar fechas
+        reserva.setFechaInicio(nuevaFechaInicio);
+        reserva.setFechaFin(nuevaFechaFin);
+
+        System.out.println(
+                ">>> RESERVA: Editada #" + id + " - Nuevo horario: " + nuevaFechaInicio + " a " + nuevaFechaFin);
+
+        return reserva;
     }
 }

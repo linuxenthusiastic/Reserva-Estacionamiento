@@ -1,4 +1,4 @@
-package com.reservas.estacionamiento.model;
+package com.parking.system.model;
 
 public interface EspacioBase {
     int getId();

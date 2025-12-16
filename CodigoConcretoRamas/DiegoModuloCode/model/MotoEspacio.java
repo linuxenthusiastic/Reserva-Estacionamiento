@@ -1,4 +1,4 @@
-package com.reservas.estacionamiento.model;
+package com.parking.system.model;
 
 public class MotoEspacio implements EspacioBase {
     private int id;
