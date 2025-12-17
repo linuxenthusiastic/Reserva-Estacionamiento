@@ -63,7 +63,6 @@ El sistema está construido siguiendo una **arquitectura en capas** (Layered Arc
 - Framework: Spring Boot 3.2.0
 - Lenguaje: Java 17
 - Arquitectura: REST API
-- Persistencia: H2 Database (desarrollo)
 - Build: Gradle 8.x
 - Servidor: Tomcat embebido
 
