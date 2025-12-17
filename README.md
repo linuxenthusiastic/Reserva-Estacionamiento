@@ -1,7 +1,7 @@
 # 🚗 Sistema de Gestión de Estacionamiento
 
 **Universidad:** Universidad Privada Catolica
-**Materia:** Diseno de software
+**Materia:** Diseno de Software
 **Fecha:** Diciembre 2025  
 **Tecnología:** Spring Boot 3.2.0 + Java 17
 
