@@ -129,14 +129,27 @@ Este es el módulo central del sistema, gestionando las reservas, el control de 
 **🔗 [Ver documentación completa del Módulo de Reservas y Accesos](https://github.com/linuxenthusiastic/Reserva-Estacionamiento/blob/main/Modulo-reservas.md)**
 
 **Funcionalidades principales:**
-- Sistema de reservas con validaciones de negocio
-- Check-in/Check-out automatizado
+- Sistema de reservas con validaciones de negocio (4 validaciones)
+- Check-in/Check-out automatizado con cálculo de tiempo
 - Generación de códigos QR seguros (SHA-256)
-- 3 tipos de pases mensuales: BÁSICO, PREMIUM, EMPRESARIAL
+- 3 tipos de pases mensuales: BÁSICO ($150), PREMIUM ($300), EMPRESARIAL ($500)
 - Cálculo dinámico de precios con Strategy Pattern
-- Gestión de estados de reserva con máquina de estados
+- Gestión de estados de reserva (CONFIRMADA, EN_USO, COMPLETADA, CANCELADA)
 
-**Patrones aplicados:** Strategy Pattern, DTO Pattern, Mapper Pattern, Service Layer, Dependency Injection
+**Endpoints:** 19 (7 reservas + 5 accesos + 7 pases)  
+**Patrones aplicados:** 
+- **Strategy Pattern** - Cálculo de precios de pases mensuales
+- **DTO Pattern** - Separación API/Dominio (10 DTOs)
+- **Mapper Pattern** - Conversión Model ↔ DTO (4 mappers)
+- **Service Layer Pattern** - Lógica de negocio centralizada (4 services)
+- **Dependency Injection** - IoC con Spring
+
+**Componentes clave:**
+- Modelos: `Reserva`, `CheckIn`, `CheckOut`, `PaseMensual`
+- Services: `ReservaService`, `CheckInService`, `CheckOutService`, `PaseMensualService`
+- Controllers: `ReservaController`, `AccesoController`, `PaseMensualController`
+- Strategy: `PrecioPaseStrategy` (interfaz), 3 estrategias concretas, `PrecioPaseContext`
+- Utilidad: `QRCodeGenerator` (formato PARKING-{id}-{timestamp}-{hash})
 
 ---
 
