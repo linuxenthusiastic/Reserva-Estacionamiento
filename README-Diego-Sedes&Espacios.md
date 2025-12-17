@@ -1,5 +1,4 @@
-# 📚 DOCUMENTACIÓN - MÓDULO RESERVAS Y ESTACIONAMIENTO
-
+# 📚 DOCUMENTACIÓN - SEDES Y ESPACIOS
 **Autor:** Diego Heredia
 **Fecha:** Diciembre 2025  
 **Tecnología:** Spring Boot 3.5.8 + Java 17
