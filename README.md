@@ -177,11 +177,6 @@ Este módulo gestiona toda la parte económica del sistema: facturación, pagos 
 **Endpoints:** 15  
 **Patrones aplicados:** Factory Pattern, Strategy Pattern, DTO Pattern
 
----
-
-
-
----
 
 ## 📊 MÉTRICAS DEL PROYECTO
 
