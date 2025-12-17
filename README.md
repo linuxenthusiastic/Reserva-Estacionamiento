@@ -1,7 +1,7 @@
 # 🚗 Sistema de Gestión de Estacionamiento
 
-**Universidad:** Universidad Privada Franz Tamayo  
-**Materia:** Programación III  
+**Universidad:** Universidad Privada Catolica
+**Materia:** Diseno de software
 **Fecha:** Diciembre 2025  
 **Tecnología:** Spring Boot 3.2.0 + Java 17
 
@@ -45,7 +45,7 @@ El sistema está construido siguiendo una **arquitectura en capas** (Layered Arc
 │   MÓDULO 1:     │  │   MÓDULO 2:     │  │   MÓDULO 3:     │
 │   Usuarios      │  │   Sedes y       │  │   Reservas,     │
 │                 │  │   Espacios      │  │   Accesos y     │
-│   Compañero 3   │  │   Diego H.      │  │   Pases         │
+│   Jhonathan     │  │   Diego H.      │  │   Pases         │
 │                 │  │                 │  │   Santiago A.   │
 └─────────────────┘  └─────────────────┘  └─────────────────┘
         │                     │                     │
@@ -55,7 +55,7 @@ El sistema está construido siguiendo una **arquitectura en capas** (Layered Arc
                     │   MÓDULO 4:       │
                     │   Sistema         │
                     │   Financiero      │
-                    │   Compañero 4     │
+                    │   Alfredo         │
                     └───────────────────┘
 ```
 
