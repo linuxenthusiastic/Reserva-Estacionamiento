@@ -202,7 +202,8 @@ Este módulo gestiona toda la parte económica del sistema: facturación, pagos 
 ### Ejecución
 ```bash
 # Clonar repositorio
-git clone [URL_DEL_REPO]
+git clone https://github.com/linuxenthusiastic/Reserva-Estacionamiento
+git checkout develop
 
 # Compilar
 ./gradlew clean build -x test
