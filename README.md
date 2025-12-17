@@ -103,10 +103,20 @@ Este módulo administra la infraestructura física del sistema: las sedes de est
 - Gestión de espacios de estacionamiento
 - 4 tipos de espacio: AUTO, MOTO, DISCAPACITADO, VIP
 - Estados de espacio: DISPONIBLE, OCUPADO, RESERVADO, MANTENIMIENTO
-- Creación masiva de espacios por sede
-- Filtrado de disponibilidad con Strategy Pattern
+- Creación masiva de espacios por sede (40 espacios automáticos)
+- Filtrado de disponibilidad por múltiples criterios
 
-**Patrones aplicados:** Simple Factory, Strategy Pattern
+**Endpoints:** 12  
+**Patrones aplicados:** 
+- **Simple Factory Pattern** - Creación de espacios según tipo
+- **Strategy Pattern** - Filtrado de disponibilidad (por tipo, estado, horario)
+
+**Componentes clave:**
+- `EspacioFactory` (interfaz)
+- 4 fábricas concretas: `AutoEspacioFactory`, `MotoEspacioFactory`, `DiscapacitadoEspacioFactory`, `VIPEspacioFactory`
+- `EspacioFactoryProvider` (selector de fábrica)
+- `DisponibilidadStrategy` (interfaz)
+- 4 estrategias: `DisponibilidadPorTipo
 
 ---
 
