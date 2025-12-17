@@ -215,12 +215,8 @@ El servidor estará disponible en: `http://localhost:8080`
 ---
 
 ## 📖 DOCUMENTACIÓN ADICIONAL
-
-- **[Casos de Uso Completos](https://github.com/tu-repo/docs/CASOS-DE-USO.md)** - Descripción detallada de todos los casos de uso
-- **[Justificación de Patrones](https://github.com/tu-repo/docs/JUSTIFICACION-PATRONES.md)** - Explicación técnica de cada patrón aplicado
-- **[Documentación API REST](https://github.com/tu-repo/docs/API-DOCUMENTACION.md)** - Especificación completa de endpoints
-- **[Diagramas UML](https://github.com/tu-repo/docs/DIAGRAMAS-UML.md)** - Diagramas de clases de cada módulo
-
+- **[Documentacion Adicional](https://docs.google.com/document/u/1/d/1Fro3RUBbSOFM0CuTd07MI3Q976zSwizajZF3dbue770/edit?usp=sharing)** - Descripción detallada de todos los casos de uso
+- **[Casos de Uso Completos](https://docs.google.com/document/u/1/d/1Fro3RUBbSOFM0CuTd07MI3Q976zSwizajZF3dbue770/edit?usp=sharing)** - Descripción detallada de todos los casos de uso
 ---
 
 ## 👥 EQUIPO DE DESARROLLO
