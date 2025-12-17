@@ -88,10 +88,6 @@ Este módulo gestiona todo lo relacionado con usuarios del sistema, desde el reg
 - Login con validación de credenciales
 - Gestión de roles (ADMIN, USER)
 - Seguridad con Spring Security
-- Encriptación de contraseñas con BCrypt
-
-**Tecnologías:** Spring Security, BCrypt, JWT (opcional)
-
 ---
 
 ### 📗 MÓDULO 2: Sedes y Espacios
