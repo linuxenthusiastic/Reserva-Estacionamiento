@@ -9,7 +9,7 @@
 
 ## 📖 INTRODUCCIÓN
 
-Este documento presenta el **Sistema Integral de Gestión de Estacionamiento**, un proyecto desarrollado como trabajo final de la materia Programación III. El sistema implementa una solución completa para la administración de estacionamientos, integrando gestión de usuarios, espacios, reservas, control de acceso y facturación.
+Este documento presenta el **Sistema Integral de Gestión de Estacionamiento**, un proyecto desarrollado como trabajo final de la materia Diseno de software. El sistema implementa una solución completa para la administración de estacionamientos, integrando gestión de usuarios, espacios, reservas, control de acceso y facturación.
 
 El proyecto fue desarrollado de manera colaborativa por un equipo de 4 estudiantes, donde cada integrante fue responsable de un módulo específico del sistema. La arquitectura modular permite que cada componente funcione de manera independiente mientras se integra perfectamente con los demás módulos para formar un sistema cohesivo y funcional.
 
