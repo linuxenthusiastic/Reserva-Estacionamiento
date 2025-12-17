@@ -88,6 +88,12 @@ Este módulo gestiona todo lo relacionado con usuarios del sistema, desde el reg
 - Login con validación de credenciales
 - Gestión de roles (ADMIN, USER)
 - Seguridad con Spring Security
+- Encriptación de contraseñas con BCrypt
+
+**Endpoints:** 8  
+**Patrones aplicados:** Service Layer, DTO Pattern, Security Pattern
+
+**Tecnologías:** Spring Security, BCrypt
 ---
 
 ### 📗 MÓDULO 2: Sedes y Espacios
@@ -168,6 +174,7 @@ Este módulo gestiona toda la parte económica del sistema: facturación, pagos 
 - Reportes financieros
 - Cálculo de montos según tipo de servicio
 
+**Endpoints:** 15  
 **Patrones aplicados:** Factory Pattern, Strategy Pattern, DTO Pattern
 
 ---
