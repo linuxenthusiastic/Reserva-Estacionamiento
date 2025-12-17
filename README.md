@@ -81,7 +81,7 @@ El sistema está documentado de manera modular. Cada módulo cuenta con su propi
 
 Este módulo gestiona todo lo relacionado con usuarios del sistema, desde el registro hasta la autenticación y autorización.
 
-**🔗 [Ver documentación completa del Módulo de Usuarios](https://github.com/tu-repo/docs/MODULO-USUARIOS.md)**
+**🔗 [Ver documentación completa del Módulo de Usuarios](https://github.com/linuxenthusiastic/Reserva-Estacionamiento/blob/main/DOCUMENTACION_MODULO_USUARIOS.md)**
 
 **Funcionalidades principales:**
 - Registro de nuevos usuarios
@@ -100,7 +100,7 @@ Este módulo gestiona todo lo relacionado con usuarios del sistema, desde el reg
 
 Este módulo administra la infraestructura física del sistema: las sedes de estacionamiento y los espacios disponibles en cada una.
 
-**🔗 [Ver documentación completa del Módulo de Sedes y Espacios](https://github.com/tu-repo/docs/MODULO-SEDES-ESPACIOS.md)**
+**🔗 [Ver documentación completa del Módulo de Sedes y Espacios](https://github.com/linuxenthusiastic/Reserva-Estacionamiento/blob/main/README-Diego-Sedes%26Espacios.md)**
 
 **Funcionalidades principales:**
 - Gestión completa de sedes (CRUD)
@@ -120,7 +120,7 @@ Este módulo administra la infraestructura física del sistema: las sedes de est
 
 Este es el módulo central del sistema, gestionando las reservas, el control de acceso y las suscripciones mensuales.
 
-**🔗 [Ver documentación completa del Módulo de Reservas y Accesos](https://github.com/tu-repo/docs/MODULO-RESERVAS-ACCESOS.md)**
+**🔗 [Ver documentación completa del Módulo de Reservas y Accesos](https://github.com/linuxenthusiastic/Reserva-Estacionamiento/blob/main/Modulo-reservas.md)**
 
 **Funcionalidades principales:**
 - Sistema de reservas con validaciones de negocio
@@ -132,8 +132,6 @@ Este es el módulo central del sistema, gestionando las reservas, el control de 
 
 **Patrones aplicados:** Strategy Pattern, DTO Pattern, Mapper Pattern, Service Layer, Dependency Injection
 
-**Casos de uso:** [Ver casos de uso detallados](https://github.com/tu-repo/docs/CASOS-DE-USO.md)
-
 ---
 
 ### 📕 MÓDULO 4: Sistema Financiero
@@ -142,7 +140,7 @@ Este es el módulo central del sistema, gestionando las reservas, el control de 
 
 Este módulo gestiona toda la parte económica del sistema: facturación, pagos y tarifas.
 
-**🔗 [Ver documentación completa del Módulo Financiero](https://github.com/tu-repo/docs/MODULO-FINANCIERO.md)**
+**🔗 [Ver documentación completa del Módulo Financiero](https://github.com/linuxenthusiastic/Reserva-Estacionamiento/blob/main/DOCUMENTACION_MODULO_FINANCIERO_FINAL.md)**
 
 **Funcionalidades principales:**
 - Generación automática de facturas
@@ -169,8 +167,6 @@ El proyecto implementa **8 patrones de diseño** reconocidos, aplicados estraté
 | **Mapper** | Reservas/Pases | Conversión bidireccional Model ↔ DTO |
 | **Service Layer** | Todos | Centralización de lógica de negocio |
 | **Dependency Injection** | Todos | Inversión de control e inyección de dependencias |
-
-**📄 [Ver justificación detallada de cada patrón](https://github.com/tu-repo/docs/JUSTIFICACION-PATRONES.md)**
 
 ---
 
