@@ -86,8 +86,6 @@ Este módulo gestiona todo lo relacionado con usuarios del sistema, desde el reg
 - Registro de nuevos usuarios
 - Login con validación de credenciales
 - Gestión de roles (ADMIN, USER)
-- Seguridad con Spring Security
-- Encriptación de contraseñas con BCrypt
 
 **Endpoints:** 8  
 **Patrones aplicados:** Service Layer, DTO Pattern, Security Pattern
