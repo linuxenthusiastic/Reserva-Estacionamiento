@@ -77,7 +77,7 @@ El sistema está documentado de manera modular. Cada módulo cuenta con su propi
 
 ### 📘 MÓDULO 1: Usuarios y Autenticación
 
-**Responsable:** Compañero 3
+**Responsable:** Jonathan
 
 Este módulo gestiona todo lo relacionado con usuarios del sistema, desde el registro hasta la autenticación y autorización.
 
@@ -179,20 +179,7 @@ Este módulo gestiona toda la parte económica del sistema: facturación, pagos 
 
 ---
 
-## 🎨 PATRONES DE DISEÑO
 
-El proyecto implementa **8 patrones de diseño** reconocidos, aplicados estratégicamente en diferentes módulos según las necesidades específicas:
-
-| Patrón | Módulo | Justificación |
-|--------|--------|---------------|
-| **Strategy** | Pases Mensuales | Cálculo dinámico de precios según tipo (Básico/Premium/Empresarial) |
-| **Strategy** | Sedes/Espacios | Múltiples criterios de filtrado de disponibilidad |
-| **Simple Factory** | Espacios | Creación consistente de espacios según tipo |
-| **Factory** | Financiero | Generación de diferentes tipos de facturas |
-| **DTO** | Todos | Separación clara entre capa de API y dominio |
-| **Mapper** | Reservas/Pases | Conversión bidireccional Model ↔ DTO |
-| **Service Layer** | Todos | Centralización de lógica de negocio |
-| **Dependency Injection** | Todos | Inversión de control e inyección de dependencias |
 
 ---
 
@@ -247,10 +234,10 @@ El servidor estará disponible en: `http://localhost:8080`
 
 | Estudiante | Módulo | Responsabilidades |
 |------------|--------|-------------------|
-| Compañero 3 | Usuarios y Autenticación | Registro, login, seguridad |
+| Jonathan | Usuarios y Autenticación | Registro, login, seguridad |
 | Diego Heredia | Sedes y Espacios | Infraestructura, disponibilidad |
 | Santiago Abuawad | Reservas y Accesos | Core del negocio, QR, pases |
-| Compañero 4 | Sistema Financiero | Facturación, pagos, tarifas |
+| Alfredo | Sistema Financiero | Facturación, pagos, tarifas |
 
 ---
 
